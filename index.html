@@ -440,18 +440,45 @@
                     title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/LuisCeballos24/" target="_blank" class="social github" title="GitHub"><i
                         class="fab fa-github"></i></a>
-    </div>
+                <button id="download-pdf-btn">Descargar como PDF</button>
         </div>
         <p class="autor">Luis Fernando Ceballos - 2023</p>
         <span><i class="boton-arriba fa fa-chevron-up" id="boton-arriba" aria-hidden="true"></i></span>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/lightbox-plus-jquery.min.js"></script>
     <script src="assets/js/t.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+    <script>
+        function downloadAsPDF() {
+            html2canvas(document.body).then(function(canvas) {
+            // Crea un objeto jsPDF
+            var pdf = new jsPDF('p', 'pt', 'letter');
+        
+            // Obtiene la imagen de html2canvas como una cadena de datos codificada en base64
+            var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        
+            // Agrega la imagen al PDF
+            pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height);
+        
+            // Descarga el archivo PDF
+            pdf.save("download.pdf");
+        });
+        console.log('Descargando archivo como PDF...');
+        }
+        // Agregamos el manejador de eventos al botón
+        var downloadBtn = document.getElementById('download-pdf-btn');
+        downloadBtn.addEventListener('click', downloadAsPDF);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var downloadBtn = document.getElementById('download-pdf-btn');
+          downloadBtn.addEventListener('click', downloadAsPDF);
+        });
+      </script>
 </body>
 
 </html>

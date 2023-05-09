@@ -155,16 +155,4 @@ $('document').ready(function(){
 		{
 			return Math.floor((Math.random()*$n)+1);	
 		}
-
-		function downloadAsPDF() {
-			// Crea un objeto HTML2PDF
-			const pdf = new jsPDF();
-		  
-			// Obtén la página actual como imagen base64 y agrega al PDF
-			const screenshotData = document.documentElement.innerHTML;
-			pdf.addHTML(screenshotData, () => {
-			  // Cuando se ha agregado el contenido al PDF, descarga el archivo
-			  pdf.save("pagina.pdf");
-			});
-		  }
 });

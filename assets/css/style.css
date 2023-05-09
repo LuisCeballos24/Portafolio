@@ -470,10 +470,14 @@ h1, h2, h3, h4, h5, h6, p {
 .footer .contenedor .redes-sociales .github {
   color: #333333;
 }
+.footer .contenedor .redes-sociales .download {
+  color: #33990b;
+}
 .footer .contenedor .redes-sociales .social:hover i {
   transform: scale(1.3);
   color: #ffffff;
 }
+
 .footer .contenedor .redes-sociales .social::before {
   content: "";
   position: absolute;
@@ -494,6 +498,10 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .footer .contenedor .redes-sociales .youtube::before {
   background: #c4302b;
+}
+
+.footer .contenedor .redes-sociales .download::before {
+  background: #7ab30f;
 }
 .footer .contenedor .redes-sociales .github::before {
   background: #333333;
